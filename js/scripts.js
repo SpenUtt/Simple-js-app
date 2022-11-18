@@ -25,6 +25,11 @@ let pokemonList=[
         name: "Slowbro",
         type: ["psychic", "water"],
         height: 1.6
+    },
+    {
+        name: "Breloom",
+        type: ["grass", "fighting"],
+        height: 1.2
     }
 ];
 
