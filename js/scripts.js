@@ -3,32 +3,32 @@
 let pokemonList=[
     {
         name: "Pikachu", 
-        type: ["electric"], 
+        types: ["electric"], 
         height: 0.4
     }, 
     {
         name: "Squirtle", 
-        type: ["water"], 
+        types: ["water"], 
         height: 0.5
     },
     {
         name: "Charmander", 
-        type: ["fire"], 
+        types: ["fire"], 
         height: 0.6
     },
     {
         name: "Jigglypuff", 
-        type: ["fairy", "normal"], 
+        types: ["fairy", "normal"], 
         height: 0.5
     },
     {
         name: "Slowbro",
-        type: ["psychic", "water"],
+        types: ["psychic", "water"],
         height: 1.6
     },
     {
         name: "Breloom",
-        type: ["grass", "fighting"],
+        types: ["grass", "fighting"],
         height: 1.2
     }
 ];
