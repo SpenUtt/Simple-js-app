@@ -33,4 +33,18 @@ let pokemonList=[
     }
 ];
 
-//note heights given in meters 
+
+if (pokemonList.height >1.5){
+    console.log(" is a big pokemon!");
+    }else if (pokemonList.height >0.5 && pokemonList.height <1.5){
+        console.log(" is an average sized pokemon!");
+    }else {
+        console.log(" is a small pokemon, how cute!")
+document.write('<p>Pikachu (height 0.4) </p> ')
+document.write('<p>Squirtle (height 0.5) </p> ')
+document.write('<p>Charmander (height 0.6) </p> ')
+document.write('<p>Jigglypuff (height 0.5) </p> ')
+document.write('<p>Slowbro (height 1.6) </p> ')
+document.write('<p>Breloom (height 1.2) </p> ')
+}
+
