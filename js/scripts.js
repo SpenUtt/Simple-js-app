@@ -33,7 +33,9 @@ let pokemonList=[
     }
 ];
 
+/*
 
+//submission 1
 if (pokemonList.height >1.5){
     console.log(" is a big pokemon!");
     }else if (pokemonList.height >0.5 && pokemonList.height <1.5){
@@ -48,3 +50,17 @@ document.write('<p>Slowbro (height 1.6) </p> ')
 document.write('<p>Breloom (height 1.2) </p> ')
 }
 
+*/
+
+for (let i = 0; 
+    i < pokemonList.length; i++) {
+    if(pokemonList[i].height >= 1.5) {
+            document.write(pokemonList[i].name + pokemonList[i].height + "Wow, that is a big pokemon! <br>");
+        }
+        else if (pokemonList[i].height >= 0.5 && pokemonList[i].height < 1.5){
+            document.write(pokemonList[i].name + pokemonList[i].height + "Wow, that is an average sized pokemon! <br>");
+        }
+        else {
+            document.write(pokemonList[i].name + pokemonList[i].height + "that is a small pokemon, how cute! <br>")
+        }
+    }
