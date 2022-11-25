@@ -48,4 +48,18 @@ let pokemonRepository = (function () {
     pokemonList.forEach(function(pokemon) {
         document.write(pokemon.name + ' is a ' + pokemon.types + ' type pokemon and is ' + pokemon.height + ' meters tall. <br> ');
     })
+
+    function getAll () {
+        return pokemonList;
+    }
+
+    function add(pokemon) {
+        pokemonList.push(pokemon);
+    }
+
+    return {
+        getAll: getAll,
+        add: add,
+    };
+    
 })();
