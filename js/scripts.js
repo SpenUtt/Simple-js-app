@@ -34,7 +34,8 @@ let pokemonRepository = (function () {
     }
     ];
 
-    /*for (let i = 0; i < pokemonList.length; i++) {
+    /* retain as a working draft for now 
+    for (let i = 0; i < pokemonList.length; i++) {
         if(pokemonList[i].height >= 1.5) {
             document.write(pokemonList[i].name + ' ' + 'height:\(' + pokemonList[i].height + '\) ' + ' Wow, that is a big pokemon! <br>');
         }
