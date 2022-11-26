@@ -1,5 +1,4 @@
 let pokemonRepository = (function () {
-    let data= {};
 
     let pokemonList=[
     {
@@ -34,22 +33,6 @@ let pokemonRepository = (function () {
     }
     ];
 
-    /* retain as a working draft for now 
-    for (let i = 0; i < pokemonList.length; i++) {
-        if(pokemonList[i].height >= 1.5) {
-            document.write(pokemonList[i].name + ' ' + 'height:\(' + pokemonList[i].height + '\) ' + ' Wow, that is a big pokemon! <br>');
-        }
-        else if (pokemonList[i].height >= 0.5 && pokemonList[i].height < 1.5){
-            document.write(pokemonList[i].name + ' ' + 'height:\(' + pokemonList[i].height + '\) ' + ' That pokemon is an average size. <br>');
-        }
-        else {
-            document.write(pokemonList[i].name + ' ' + 'height:\(' + pokemonList[i].height + '\) ' + ' That is a small pokemon, how cute! <br>');
-        }
-    }*/
-    pokemonList.forEach(function(pokemon) {
-        document.write(pokemon.name + ' is a ' + pokemon.types + ' type pokemon and is ' + pokemon.height + ' meters tall. <br> ');
-    })
-
     function getAll () {
         return pokemonList;
     }
@@ -62,5 +45,17 @@ let pokemonRepository = (function () {
         getAll: getAll,
         add: add,
     };
-    
-})();
+
+    pokemonRepository.getAll().forEach(function(pokemon){
+        if(pokemon.height > 1.5){
+            document.write(<li>pokemon.name + ' (height: '+ pokemon.height + ') - Wow, this is a large Pokemon!' + '</li>')
+        }
+        else {
+            document.write(<li>pokemon.name + ' (height: '+ pokemon.height + ') </li>')
+        }
+    }) 
+})()
+/*
+pokemonList.forEach(function(pokemon) {
+    document.write(pokemon.name + ' is a ' + <li>pokemon.types + ' type pokemon and is ' + pokemon.height + ' meters tall. '</li>);
+})*/
