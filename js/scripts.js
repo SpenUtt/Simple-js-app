@@ -50,7 +50,7 @@ let pokemonRepository = (function () {
         listpokemon.appendChild(button);
         pokemonList.appendChild(listpokemon); 
         button.addEventListener('click', function (ev) {
-            showDetails(pokemon);
+            showDetails(pokemon.name);
         });
     }
 
