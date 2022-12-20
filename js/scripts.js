@@ -72,7 +72,7 @@ let pokemonRepository = (function () {
 
         let modal = document.createElement('div');
         modal.classList.add('modal');
-//pokemon name, height and img
+    //pokemon name, height and img
         let title = document.createElement('h1');
         title.innerText = "Name: " + pokemon.name;
 
