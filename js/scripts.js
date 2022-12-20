@@ -72,6 +72,11 @@ let pokemonRepository = (function () {
 
         let modal = document.createElement('div');
         modal.classList.add('modal');
+
+        let closeButtonElement = document.createElement('button');
+        closeButtonElement.classList.add('modal-close');
+        closeButtonElement.innerText = 'Close';
+        closeButtonElement.addEventListener('click', hideModal);
     //pokemon name, height and img
         let name = document.createElement('h1');
         name.innerText = "Name: " + pokemon.name;
@@ -82,6 +87,7 @@ let pokemonRepository = (function () {
         let pokemonImage = document.createElement('img');
         pokemonImage.src = pokemon.imageUrl;
 
+        modal.appendChild(closeButtonElement);
         modal.appendChild(name);
         modal.appendChild(pokemonImage);
         modal.appendChild(pokemonHeight);
