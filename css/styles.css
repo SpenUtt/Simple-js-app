@@ -53,3 +53,9 @@ button:focus,
     justify-content: center;
     grid-template-columns: repeat(auto-fit, 300px);
 }
+
+.container {
+    text-align: center;
+    align-items: center;
+}
+
