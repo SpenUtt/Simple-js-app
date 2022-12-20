@@ -61,13 +61,13 @@ let pokemonRepository = (function () {
     }
 
     function showDetails(pokemon) {
-        pokemonRepository.loadDetails(item).then(function () {
-            showModal(item)
+        pokemonRepository.loadDetails(pokemon).then(function () {
+            showModal(pokemon)
         });
     }
 //modal
     function showModal(pokemon) {
-        let modalContainer = document.querySelector('.modal-container');
+        let modalContainer = document.querySelector('#modal-container');
         modalContainer.innerText = '';
 
         let modal = document.createElement('div');
@@ -82,7 +82,7 @@ let pokemonRepository = (function () {
         let pokemonImage = document.createElement('img');
         pokemonImage.src = pokemon.imageUrl;
 
-        modal.appendChild(title);
+        modal.appendChild(name);
         modal.appendChild(pokemonImage);
         modal.appendChild(pokemonHeight);
         modalContainer.appendChild(modal);
