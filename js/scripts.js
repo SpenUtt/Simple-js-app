@@ -1,6 +1,7 @@
 let pokemonRepository = (function () {
     let pokemonList=[];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+    let pokemonListElement = document.querySelector('.pokemon-list');
 
     function add(pokemon) {
         if (
@@ -60,10 +61,54 @@ let pokemonRepository = (function () {
     }
 
     function showDetails(pokemon) {
-        loadDetails(pokemon).then(function () {
-            console.log(pokemon);
+        pokemonRepository.loadDetails(item).then(function () {
+            showModal(item)
         });
     }
+//modal
+    function showModal(pokemon) {
+        let modalContainer = document.querySelector('.modal-container');
+        modalContainer.innerText = '';
+
+        let modal = document.createElement('div');
+        modal.classList.add('modal');
+//pokemon name, height and img
+        let title = document.createElement('h1');
+        title.innerText = "Name: " + pokemon.name;
+
+        let pokemonHeight = document.createElement('p');
+        pokemonHeight.innerText = "Height: " + pokemon.height;
+
+        let pokemonImage = document.createElement('img');
+        pokemonImage.src = pokemon.imageUrl;
+
+        modal.appendChild(title);
+        modal.appendChild(pokemonImage);
+        modal.appendChild(pokemonHeight);
+        modalContainer.appendChild(modal);
+
+        modalContainer.addEventListener('click', (e) => {
+            let target = e.target;
+            if (target === modalContainer) {
+                hideModal();
+            }
+        })
+
+        modalContainer.classList.add('is-visible');
+    }
+
+    function hideModal() {
+        let modalContainer = document.querySelector('.modal-container');
+        modalContainer.classList.remove('is-visible');
+    }
+
+    window.addEventListener('keydown', (e) => {
+        let modalContainer = document.querySelector('.modal-container');
+        if(e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+            hideModal();
+        } 
+    });
+
 
     return {
         add: add, 
