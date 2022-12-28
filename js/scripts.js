@@ -19,16 +19,28 @@ let pokemonRepository = (function () {
     }
     
     function addListItem(pokemon){
-        let pokemonList = document.querySelector (".pokemon-list");
-        let listpokemon = document.createElement("li"); 
-        let button = document.createElement("button");
-        button.innerText = pokemon.name; 
-        button.classList.add("button-class");
-        listpokemon.appendChild(button);
-        pokemonList.appendChild(listpokemon); 
-        button.addEventListener("click", function (ev) {
-            showDetails(pokemon);
-        });
+        pokemonRepository.loadDetails(pokemon).then(function () {
+            let list = $(".list");
+            let card = $('<div class="card" style=width:300px></div>');
+            let cardImage = $('<img class="card-img-top" alt="Card image" style="width:50%"/>');
+            cardImage.attr("src", pokemon.imageUrl);
+            let cardTitle = pokemon.name;
+            let cardBody = $('<div class="card-body"></div>');
+            
+            let detailsButton = $('<button type="button" id="pokemon-button" class="btn btn-dark" data-toggle="modal" data-target="#pokemonModal">See details</button>');
+            list.append(card);
+            card.append(cardImage);
+            card.append(cardTitle);
+            card.append(cardBody);
+            cardBody.append(detailsButton);
+
+            detailsButton.on("click", () => {
+                showDetails(pokemon);
+            });
+            card.on("click", () => {
+                showDetails(pokemon);
+            })
+        })
     }
 
     function loadList() {
