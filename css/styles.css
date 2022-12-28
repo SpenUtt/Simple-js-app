@@ -106,3 +106,6 @@ button:focus,
     margin-bottom: 0;
 }
 
+.page-container {
+    margin-top: 80px;
+}
