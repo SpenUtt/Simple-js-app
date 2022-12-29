@@ -1,7 +1,7 @@
 let pokemonRepository = (function () {
     let pokemonList=[];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-    let pokemonListElement = document.querySelector('.pokemon-list');
+    let pokemonListElement = $('.pokemon-list');
 
     function add(pokemon) {
         if (
@@ -73,7 +73,7 @@ let pokemonRepository = (function () {
     }
 
     function showDetails(pokemon) {
-        pokemonRepository.loadDetails(pokemon).then(function () {
+        loadDetails(pokemon).then(function () {
             showModal(pokemon)
         });
     }
