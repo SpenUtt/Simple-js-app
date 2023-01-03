@@ -1,17 +1,14 @@
 let pokemonRepository = (function () {
     let pokemonList=[];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-    let pokemonListElement = $('.pokemon-list');
-
+    
     function add(pokemon) {
         if (
             typeof pokemon === "object" &&
             "name" in pokemon 
         ) {
             pokemonList.push(pokemon);
-        } else {
-            console.log("pokemon is not correct");
-        }
+        } 
     }
     
     function getAll () {
@@ -72,7 +69,6 @@ let pokemonRepository = (function () {
         return fetch(url).then(function (response) {
             return response.json();
         }).then(function (details) {
-            console.log("Response from API", details)
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
             item.types = details.types.map(o => o.type.name); //function which captures array of pokemon types
