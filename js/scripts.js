@@ -21,13 +21,21 @@ let pokemonRepository = (function () {
     function addListItem(pokemon){
         pokemonRepository.loadDetails(pokemon).then(function () {
             let list = $(".list");
-            let card = $('<div class="card" style=width:300px></div>');
-            let cardImage = $('<img class="card-img-top" alt="Card image" style="width:50%"/>');
+
+            let card = $('<div></div>');
+            card.addClass("card")
+
+            let cardImage = $('<img alt="Card image"/>');
             cardImage.attr("src", pokemon.imageUrl);
+
             let cardTitle = pokemon.name;
             let cardBody = $('<div class="card-body"></div>');
             
-            let detailsButton = $('<button type="button" id="pokemon-button" class="btn btn-dark" data-toggle="modal" data-target="#pokemonModal">See details</button>');
+            let detailsButton = $('<button type="button" id="pokemon-button">See details</button>');
+            detailsButton.addClass(["btn", "btn-dark"]);
+            detailsButton.attr("data-toggle", "modal");
+            detailsButton.attr("data-target", "#pokemonModal");
+
             list.append(card);
             card.append(cardImage);
             card.append(cardTitle);
@@ -64,9 +72,11 @@ let pokemonRepository = (function () {
         return fetch(url).then(function (response) {
             return response.json();
         }).then(function (details) {
+            console.log("Response from API", details)
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
-            item.types = details.types;
+            item.types = details.types.map(o => o.type.name); //function which captures array of pokemon types
+            item.weight = details.weight;
         }).catch(function (e) {
             console.error(e);
         });
@@ -85,13 +95,17 @@ let pokemonRepository = (function () {
         modalBody.empty();
         
         let nameElement = $("<h1>" + item.name + "</h1>");
-        let imageElement = $('<img class"modal-image" style="width:50%">');
+        let imageElement = $('<img class"modal-image">');
         imageElement.attr("src", item.imageUrl);
         let heightElement = $("<p>" + "height : " + item.height + "<p>");
+        let weightElement = $("<p>" + "weight : " + item.weight + "<p>");
+        let types = $("<p>" + "types : " + item.types.toString().replaceAll(",", " ") + "<p>"); //converts to string to replace comma to space in between pokemon types
 
         modalTitle.append(nameElement);
         modalBody.append(imageElement);
         modalBody.append(heightElement);
+        modalBody.append(weightElement);
+        modalBody.append(types);
     };
 
     return {
