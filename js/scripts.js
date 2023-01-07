@@ -1,6 +1,6 @@
 let pokemonRepository = (function () {
     let pokemonList=[];
-    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+    const apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     
     function add(pokemon) {
         if (
@@ -105,13 +105,13 @@ let pokemonRepository = (function () {
     };
 
     return {
-        add: add, 
-        getAll: getAll, 
-        addListItem: addListItem,
-        loadList: loadList,
-        loadDetails: loadDetails,
-        showDetails: showDetails,
-        showModal: showModal,
+        add, 
+        getAll, 
+        addListItem,
+        loadList,
+        loadDetails,
+        showDetails,
+        showModal,
     };
 })();
 
