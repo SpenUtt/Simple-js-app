@@ -82,7 +82,34 @@ let pokemonRepository = (function () {
         loadDetails(pokemon).then(function () {
             showModal(pokemon)
         });
-    }   
+    }
+    
+    // Search feature (filter list)
+    /*const searchInpt = document.getElementById("search-input");
+    const container = document.getElementById("pokemon-list");
+    searchInpt.addEventListener("keyup", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if(e.key === 'Enter') {
+                let searchTerm = e.target.value;
+                pokemonList = pokemonList.filter(pokemon => {
+                //pokemon.name.includes (searchTerm)
+                console.log(searchTerm)
+            });      
+        }
+    });*/    
+        /*const pokemonCards = document.getElementsByClassName("card");
+        const filteredCards = [];
+        for (let i = 0; i < pokemonCards.length; i++) {
+            const pokemonDiv = pokemonCards.item(i);
+            const pokemonDivText = pokemonDiv.innerText.replace("See details", "")
+            if (pokemonDivText.includes(searchInpt.value)) {
+                filteredCards.push(pokemonDiv);
+            }
+        }
+        container.innerHTML = "Hey"
+        console.log(filteredCards);*/
+    
 
     return {
         add, 

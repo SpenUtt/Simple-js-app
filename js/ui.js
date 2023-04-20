@@ -1,3 +1,4 @@
+// Modal
 function showModal(item) {
     let modalBody = $(".modal-body");
     let modalTitle = $(".modal-title");
@@ -16,8 +17,4 @@ function showModal(item) {
     modalBody.append(heightElement);
     modalBody.append(weightElement);
     modalBody.append(types);
-};
-
-return {
-    showModal,
 };
