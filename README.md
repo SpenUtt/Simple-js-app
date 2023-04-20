@@ -37,3 +37,15 @@
 ![home page](/img/home%20page.png)
 
 ![modal](/img/modal.png)
+
+## Getting Started
+
+### Prerequisites
+- git installed on your local machine
+
+### Installation 
+
+1. clone repository from https://github.com/SpenUtt/Simple-js-app.git
+2. Open the 'index.html' file in your browser of choice 
+- Note: The <a href="https://pokeapi.co/" target="_blank">Pokemon API</a> used for this app is free to use and requires no authentication or account creation.
+
