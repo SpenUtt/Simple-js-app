@@ -18,3 +18,19 @@ function showModal(item) {
     modalBody.append(weightElement);
     modalBody.append(types);
 };
+
+// Search feature (filter list)
+
+const searchPokemon = document.getElementById('search-pokemon');
+searchPokemon.addEventListener('keyup', (e) => {
+    const pokemonListItems = document.querySelectorAll('.card');
+    e.preventDefault();
+    let searchTerm = e.target.value;
+    pokemonListItems.forEach(function (pokemon) {
+        if (pokemon.innerText.toLowerCase().includes(searchTerm.toLowerCase())) {
+            pokemon.style.display = "";
+        } else {
+            pokemon.style.display = 'none';
+        }
+    });
+});

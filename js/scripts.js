@@ -64,30 +64,6 @@ let pokemonRepository = (function () {
         })
     }
 
-    // Search feature (filter list)
-
-    const searchPokemon = document.getElementById('pokemon-list');
-    searchPokemon.addEventListener('keyup', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if(e.key === 'Enter') {
-                let searchTerm = e.target.value;
-                pokemonList = pokemonList.filter(pokemon => {
-                //pokemon.name.includes (searchTerm)
-                console.log(searchTerm)
-            });      
-        }
-        const pokemonListItems = document.querySelectorAll('.list-group-item');
-        const filterValue = e.target.value.toLowerCase();
-        pokemonListItems.forEach(function (item) {
-            if (item.innerText.toLowerCase().indexOf(filterValue) > -1) {
-                item.style.display = "";
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
-   
     function loadDetails(item) {
         let url = item.detailsUrl;
         return fetch(url).then(function (response) {
@@ -107,33 +83,6 @@ let pokemonRepository = (function () {
             showModal(pokemon)
         });
     }
-    
-    
-    /*const searchInpt = document.getElementById("search-input");
-    const container = document.getElementById("pokemon-list");
-    searchInpt.addEventListener("keyup", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if(e.key === 'Enter') {
-                let searchTerm = e.target.value;
-                pokemonList = pokemonList.filter(pokemon => {
-                //pokemon.name.includes (searchTerm)
-                console.log(searchTerm)
-            });      
-        }
-    });*/    
-        /*const pokemonCards = document.getElementsByClassName("card");
-        const filteredCards = [];
-        for (let i = 0; i < pokemonCards.length; i++) {
-            const pokemonDiv = pokemonCards.item(i);
-            const pokemonDivText = pokemonDiv.innerText.replace("See details", "")
-            if (pokemonDivText.includes(searchInpt.value)) {
-                filteredCards.push(pokemonDiv);
-            }
-        }
-        container.innerHTML = "Hey"
-        console.log(filteredCards);*/
-    
 
     return {
         add, 
